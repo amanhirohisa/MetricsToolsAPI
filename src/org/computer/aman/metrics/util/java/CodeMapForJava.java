@@ -82,11 +82,11 @@ extends CodeMap
     }
 
     /**
-    * Returns true if the given string seems to be commented code (comment-out code).
-    * 
-    * @param aLine string to be checked
-    * @return true if the given string seems to be commented code
-    */
+     * Returns true if the given string seems to be commented code (comment-out code).
+     * 
+     * @param aLine string to be checked
+     * @return true if the given string seems to be commented code
+     */
     public boolean isCommentOut(final String aLine)
     {
         // Regard the line to be a commented code if the line ends with "{", "}" or ";",

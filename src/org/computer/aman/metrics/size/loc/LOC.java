@@ -11,14 +11,14 @@ import org.computer.aman.io.sourcecode.SourceFile;
  * <p></p>
  * @author Hirohisa AMAN &lt;aman@computer.org&gt;
  */
-public class LOCResultSet
+public class LOC
 {
 	/**
 	 * Initializes LOCResultSet object
 	 * 
 	 * @param aSourceFile the measurement target source file
 	 */
-	public LOCResultSet(final SourceFile aSourceFile)
+	public LOC(final SourceFile aSourceFile)
 	{
 		lines = new ArrayList<SourceCodeLine>();
 		sourceFile = aSourceFile;

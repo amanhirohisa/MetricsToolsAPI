@@ -34,7 +34,7 @@ extends CodeLineMap
     /** code map code for a traditional (C style) comment */
     public static final String TRADITIONAL_COMMENT = "3";
     
-    /** code map code for a commented code in a traditiona (C style) comment */
+    /** code map code for a commented code in a traditional (C style) comment */
     public static final String TRADITIONAL_COMMENT_OUT = "6";
     
     /**
