@@ -129,7 +129,7 @@ extends CodeMap
 	private void parseLine( String aSourceLine )
 	{
 		int idx = 0;
-		while ( idx < aSourceLine.length() ){    
+		while ( idx < aSourceLine.length() ){
 			char ch = aSourceLine.charAt(idx);
                 
 			if ( Character.isWhitespace(ch) ){ 
@@ -212,40 +212,39 @@ extends CodeMap
                             workingMapList.addAll(replacedMapList);
                         }
                     }
-                    else{    
-                    	idx++;
-                    	appendToWorkingMap(CodeLineMapForC.TRADITIONAL_COMMENT, 1);
-                    	commentContents.append(ch);
-                    }
-                    continue;
-                }
-                
+				}
+				else{    
+					idx++;
+					appendToWorkingMap(CodeLineMapForC.TRADITIONAL_COMMENT, 1);
+					commentContents.append(ch);
+				}
+				continue;
+            }
 
-	            if ( status == CHAR_LITERAL ){
-	                idx++;
-	                appendToWorkingMap(CodeLineMapForC.CODE, 1);
-	                if ( ch == '\\' ){ 
-	                    idx++;
-	                    appendToWorkingMap(CodeLineMapForC.CODE, 1);
-	                }
-	                else if ( ch == '\'' ){
-	                    status = CODE;
-	                }
-	                continue;
-	            }
-	            
-	            if ( status == STRING_LITERAL ){
-	                idx++;
-	                appendToWorkingMap(CodeLineMapForC.CODE, 1);
-	                if ( ch == '\\' ){
-	                    idx++;
-	                    appendToWorkingMap(CodeLineMapForC.CODE, 1);
-	                }
-	                else if ( ch == '"' ){
-	                    status = CODE;
-	                }
-	                continue;
-	            }
+            if ( status == CHAR_LITERAL ){
+                idx++;
+                appendToWorkingMap(CodeLineMapForC.CODE, 1);
+                if ( ch == '\\' ){ 
+                    idx++;
+                    appendToWorkingMap(CodeLineMapForC.CODE, 1);
+                }
+                else if ( ch == '\'' ){
+                    status = CODE;
+                }
+                continue;
+            }
+            
+            if ( status == STRING_LITERAL ){
+                idx++;
+                appendToWorkingMap(CodeLineMapForC.CODE, 1);
+                if ( ch == '\\' ){
+                    idx++;
+                    appendToWorkingMap(CodeLineMapForC.CODE, 1);
+                }
+                else if ( ch == '"' ){
+                    status = CODE;
+                }
+                continue;
             }
 		}
 		workingMapList.add(new String(workingMap));

@@ -69,7 +69,7 @@ public class LOCCounter
              !EXT.equalsIgnoreCase("i") && !EXT.equalsIgnoreCase("ii") && !EXT.equalsIgnoreCase("h") ){
             throw new NotSupportedSourceFileExeption("not supported file type: " + aSourceFile);
         }
-        
+
         LOC result = new LOC(aSourceFile);
         
         CodeMap map = CodeMapFactory.create(aSourceFile);
