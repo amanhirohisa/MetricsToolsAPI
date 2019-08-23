@@ -38,6 +38,9 @@ public abstract class CodeMap
      */
     public Iterator<CodeLineMap> iterator()
     {
+    	if ( lines == null ){
+            lines = new ArrayList<CodeLineMap>();
+        }
         return lines.iterator();
     }
     
