@@ -54,19 +54,23 @@ extends File
     }
     
     /**
-     * Returns true if this file is a C/C++ source file or a related file (.c, .cpp, .cc, .cxx, .h, .hpp, .hxx).
+     * Returns true if this file is a C/C++ source file or a related file (.c, .cpp, .cc, .cxx, .h, .hpp, .hxx, m, i, ii).
      * 
-     * @return true if this file is a C/C++ source file or a related file (.c, .cpp, .cc, .cxx, .h, .hpp, .hxx)
+     * @return true if this file is a C/C++ source file or a related file (.c, .cpp, .cc, .cxx, .h, .hpp, .hxx, m, i, ii)
      */
     public boolean isCFile()
     {
-        return getExtension().equalsIgnoreCase("c") ||
-                getExtension().equalsIgnoreCase("cpp") ||
-                getExtension().equalsIgnoreCase("cc") ||
-                getExtension().equalsIgnoreCase("cxx") ||
-                getExtension().equalsIgnoreCase("h") ||
-                getExtension().equalsIgnoreCase("hpp") ||
-                getExtension().equalsIgnoreCase("hxx");
+    	final String EXT = getExtension();
+        return EXT.equalsIgnoreCase("c") ||
+                EXT.equalsIgnoreCase("cpp") ||
+                EXT.equalsIgnoreCase("cc") ||
+                EXT.equalsIgnoreCase("cxx") ||
+                EXT.equalsIgnoreCase("h") ||
+                EXT.equalsIgnoreCase("hpp") ||
+                EXT.equalsIgnoreCase("hxx") ||
+                EXT.equalsIgnoreCase("m") ||
+                EXT.equalsIgnoreCase("i") ||
+                EXT.equalsIgnoreCase("ii");
     }
     
     private static final long serialVersionUID = 2008061301L;

@@ -8,7 +8,7 @@ import org.computer.aman.metrics.size.loc.LOC;
 import org.computer.aman.metrics.size.loc.LOCCounter;
 
 /**
- * Sample code for measuring the LOC value of a Java source file.
+ * Sample code for measuring the LOC value of a Java or C/C++ source file.
  * 
  * @author Hirohisa Aman &lt;aman@computer.org&gt;
  */
@@ -16,7 +16,7 @@ public class LOCCounterSample {
 
 	public static void main(String[] args) 
 	{
-		// open a Java source file specified as the command line parameter,
+		// open a Java or C/C++ source file specified as the command line parameter,
 		// and measure the LOC of it
 		try {
 			System.out.println(new SourceFile(args[0]));

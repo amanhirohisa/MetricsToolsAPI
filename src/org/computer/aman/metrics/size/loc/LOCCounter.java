@@ -62,11 +62,7 @@ public class LOCCounter
     throws NotSupportedSourceFileExeption, IOException
     {
         // check if the specified source file is supported or not
-        final String EXT = aSourceFile.getExtension();
-        if ( !EXT.equalsIgnoreCase("java") &&
-             !EXT.equalsIgnoreCase("c") && !EXT.equalsIgnoreCase("h") && !EXT.equalsIgnoreCase("cpp") &&
-             !EXT.equalsIgnoreCase("cc") && !EXT.equalsIgnoreCase("cxx") && !EXT.equalsIgnoreCase("m") &&
-             !EXT.equalsIgnoreCase("i") && !EXT.equalsIgnoreCase("ii") && !EXT.equalsIgnoreCase("h") ){
+        if ( !aSourceFile.isJavaFile() && !aSourceFile.isCFile() ){
             throw new NotSupportedSourceFileExeption("not supported file type: " + aSourceFile);
         }
 
@@ -75,7 +71,7 @@ public class LOCCounter
         CodeMap map = CodeMapFactory.create(aSourceFile);
         
         LineNumberReader reader = new LineNumberReader(new FileReader(aSourceFile));
-        
+
         Iterator<CodeLineMap> itr = map.iterator();
         int loc = 0;
         int lineNumber = 0;        
