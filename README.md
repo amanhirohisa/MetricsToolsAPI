@@ -1,6 +1,8 @@
 # MetricsToolsAPI
 
-Java API for metrics tools
+Java API (library) for metrics tools
+
+A Jar file of this library is [here](/MetricsToolsAPI.jar).
 
 ---
 
