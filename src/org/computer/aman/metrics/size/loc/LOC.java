@@ -13,19 +13,31 @@ import org.computer.aman.io.sourcecode.SourceFile;
  */
 public class LOC
 {
+
 	/**
-	 * Initializes LOCResultSet object
+	 * Initializes LOC object (for a code fragment measurement)
+	 * 
+	 * @param anySourceLines the measurement target code fragment
+	 */
+	public LOC()
+	{
+		lines = new ArrayList<SourceCodeLine>();
+	}
+	
+	/**
+	 * Initializes LOC object
 	 * 
 	 * @param aSourceFile the measurement target source file
 	 */
 	public LOC(final SourceFile aSourceFile)
 	{
-		lines = new ArrayList<SourceCodeLine>();
+		this();
 		sourceFile = aSourceFile;
 	}
+	
 
 	/**
-	 * Append a SourceCodeLine object to the list maintained in this LOCResultSet;
+	 * Append a SourceCodeLine object to the list maintained in this LOC;
 	 * A SourceCodeLine object is obtained through the LOC measurement.
 	 * 
 	 * @param aCodeLine SourceCodeLine object to be appended
@@ -102,14 +114,14 @@ public class LOC
 	}
 	
 	/**
-	 * Returns the string representation of this LOCResultSet
+	 * Returns the string representation of this LOC
 	 * 
-	 * @return the string representation of this LOCResultSet
+	 * @return the string representation of this LOC
 	 */
 	public String toString()
 	{
 		StringBuilder buf = new StringBuilder();
-		buf.append("[" + sourceFile.getName() + "]\n");
+		buf.append("[" + (sourceFile == null ? "a code fragment" : sourceFile.getName()) + "]\n");
 		buf.append("LOC = " + getLOC() + "\n");
 		
 		buf.append("# of lines = " + getTotalLineCount() + "\n\n");

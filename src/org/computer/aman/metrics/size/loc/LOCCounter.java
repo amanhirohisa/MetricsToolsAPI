@@ -108,4 +108,41 @@ public class LOCCounter
         
         return result;        
     }
+    
+
+    /**
+     * Measures the LOC value of the specified source file and returns the result.
+     * 
+     * @param sourceLines array of Java code lines to be measured
+     * @param aMap a CodeMap corresponding sourceLines 
+     * @return the results of LOC measurement
+     */
+    public static LOC measure(final String[] sourceLines, final CodeMap aMap)
+    {
+        LOC result = new LOC();
+
+        Iterator<CodeLineMap> itr = aMap.iterator();
+        int loc = 0;
+        int lineNumber = 0;
+        while ( itr.hasNext() ){
+            CodeLineMap lineMap = itr.next();
+            SourceCodeLine codeLine = new SourceCodeLine(sourceLines[lineNumber]);
+            lineNumber++;
+
+            if ( lineMap.getCodeCount() > 0 ){
+                loc++;
+                codeLine.setLineNumber(loc);
+                result.incrementLOC();
+            }
+            else{                
+                codeLine.setLineNumber(-1);
+                if ( lineMap.isBlankLine() ){
+                    result.incrementBlankCount();
+                }
+            }
+            result.addContents(codeLine);
+        }
+        
+        return result;        
+    }
 }
